@@ -1,0 +1,5 @@
+/build_*
+.build-config
+compile_commands.json
+.cache
+
