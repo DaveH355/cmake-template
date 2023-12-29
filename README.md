@@ -5,10 +5,10 @@ My personal lightweight CMake template for C/C++. Focused on Linux.
 Make sure to install the required packages per your system.
 GLFW is required to run the OpenGL example that comes with this template. 
 
-##### Fedora
+#### Fedora
     sudo dnf install gcc make cmake clang clang-tools-extra glfw glfw-devel
 
-##### Ubuntu 
+#### Ubuntu 
     sudo apt install build-essential cmake clang clang-tools-extra libglfw3 libglfw3-dev
 
 
@@ -17,10 +17,10 @@ Simply run `build.sh` to compile and run the program. CMake is run everytime so 
 to CMakeLists.txt will be applied. 
 
 You can easily change compilers or build types by passing arguments. 
-`-b` Changes the build type. Valid options are Debug, Release, RelWithDebInfo, MinSizeRel
-`-c` Changes the compiler. Valid options are gcc and clang
+- `-b` Changes the build type. Valid options are Debug, Release, RelWithDebInfo, MinSizeRel
+- `-c` Changes the compiler. Valid options are gcc and clang
 
-##### Example usage
+#### Example usage
     ./build.sh -b Release -c clang
 
 You only need to pass any arugment once. The settings are written to a .build-config file
