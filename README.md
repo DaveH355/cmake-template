@@ -1,5 +1,5 @@
 # CMake Template
-My personal lightweight CMake template for C/C++. Focused on Linux.
+My personal lightweight CMake template for C++. Focused on Linux.
 
 ## Required packages
 Make sure to install the required packages per your system.
