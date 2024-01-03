@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(glfw3 REQUIRED)
 
 # Add source files. Can also add source files from extra libraries
-# Reasoning for using glob https://www.reddit.com/r/cmake/comments/q3igh9/comment/hftvyr2/?utm_source=share&utm_medium=web2x&context=3
+# Reason for using glob: the easiet option for most projects
 file(GLOB PROJECT_SOURCES
     CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
     # glad
