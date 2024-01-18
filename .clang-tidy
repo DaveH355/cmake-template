@@ -14,12 +14,12 @@ Checks: >-
   misc-redundant-expression,    
 
   # Disabled checks
-  -cppcoreguidelines-non-private-member-variables-in-classes,
-  -cppcoreguidelines-avoid-non-const-global-variables,
   -cppcoreguidelines-owning-memory,
   -cppcoreguidelines-pro-type-vararg,
   -cppcoreguidelines-pro-bounds-pointer-arithmetic,
   -cppcoreguidelines-avoid-magic-numbers,
+  -cppcoreguidelines-non-private-member-variables-in-classes,
+  -cppcoreguidelines-init-variables,
 
   -bugprone-easily-swappable-parameters,
 

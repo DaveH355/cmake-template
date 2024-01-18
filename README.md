@@ -12,7 +12,7 @@ GLFW is required to run the OpenGL example that comes with this template.
     sudo apt install build-essential cmake clang clang-tools-extra libglfw3 libglfw3-dev
 
 
-## Building & Features
+## Building
 Simply run build.sh to compile and run the program. CMake is run everytime so any changes you've made to CMakeLists.txt will be applied. 
 
 You can easily change build types or compilers. The script will manage multiple build directories for each different configuration. 
@@ -26,6 +26,16 @@ You can easily change build types or compilers. The script will manage multiple 
 #### Example usage
     ./build.sh -b Release -c clang
 
-## Features
-- You can reference the assets folder with the `ASSETS_PATH` macro defined in CMakeLists.txt. By default, it's absolute path on your machine. Consider setting it to relative when distributing. 
+### Library Management
+/external is for libraries that aren't avaliable through the package manager. You can manually add your own and link them in CMake.
+Or use `fetch.sh`. It manages header only libraries well. Simply edit the file to add more libraries. Then run the script.  
+The headers are stored in /external/singles which is automatically included by CMake. 
+
+For larger libraries like imgui, it's better to use CMake's FetchContent. 
+
+
+### Additional Features
 - `format.sh` will format the entire src directory using clang-format. It will only process common C/C++ file extensions. You can add more if you wish. 
+
+- You can reference the assets folder with the `ASSETS_PATH` macro defined in CMakeLists.txt. By default, it's absolute path on your machine. Consider setting it to relative when distributing. 
+

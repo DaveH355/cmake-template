@@ -22,11 +22,13 @@ add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
 # Set name of the output executable
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "opengl_playground")
 
-# Include directories for the executable target. Can also add headers from extra libraries
+# Include directories. Can also add headers from extra libraries
 target_include_directories(${PROJECT_NAME} PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/src"
     #glad
     "${CMAKE_CURRENT_SOURCE_DIR}/external/glad/include"
+    # all single file header libs
+    "${CMAKE_CURRENT_SOURCE_DIR}/external/singles"
 )
 
 # Link libraries
