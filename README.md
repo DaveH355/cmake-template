@@ -13,7 +13,7 @@ GLFW is required to run the OpenGL example that comes with this template.
 
 
 ## Building
-Simply run build.sh to compile and run the program. CMake is run everytime so any changes you've made to CMakeLists.txt will be applied. 
+Simply run `build.sh` to compile and run the program. CMake is run everytime so any changes you've made to CMakeLists.txt will be applied. 
 
 You can easily change build types or compilers. The script will manage multiple build directories for each different configuration. 
 **Note** You only need pass any argument once. The settings are written to a .build-config file and will be remembered next time.
@@ -27,9 +27,8 @@ You can easily change build types or compilers. The script will manage multiple 
     ./build.sh -b Release -c clang
 
 ### Library Management
-/external is for libraries that aren't avaliable through the package manager. You can manually add your own and link them in CMake.
-Or use `fetch.sh`. It manages header only libraries well. Simply edit the file to add more libraries. Then run the script.  
-The headers are stored in /external/singles which is automatically included by CMake. 
+/external is for libraries that aren't avaliable through the package manager. You can manually add your own and link them in CMake. Or use `fetch.sh`. It manages header only libraries well. 
+Simply edit the file to add more libraries. Then run the script.The headers are stored in /external/singles which is automatically included by CMake. 
 
 For larger libraries like imgui, it's better to use CMake's FetchContent. 
 
