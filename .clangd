@@ -2,23 +2,16 @@ CompileFlags:
   Add: [-Wunused-variable, -Wunused-parameter, -Wlogical-not-parentheses, -Wparentheses-equality, -Wdangling-else]
 
 Completion:
-  Detailed: true
-  Filter: true
-  Include:
-    FixIts: true
+  AllScopes: Yes
 
 Diagnostics:
   UnusedIncludes: Strict
+  MissingIncludes: Strict
 
 Index:
   Background: Build
-  AllScopesCompletion: true
-  Comments: true
 
 InlayHints:
-  Enabled: true
-  ParameterNames: true
-  TypeHints: true
-
-Tweak:
-  Enable: true
+  Enabled: Yes
+  ParameterNames: Yes
+  DeducedTypes: Yes
