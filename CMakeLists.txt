@@ -11,7 +11,7 @@ find_package(glfw3 REQUIRED)
 
 # Add source files. Can also add source files from extra libraries
 # Reason for using glob: the easiet option for most projects
-file(GLOB PROJECT_SOURCES
+file(GLOB_RECURSE PROJECT_SOURCES
     CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
     # glad
     "${CMAKE_CURRENT_SOURCE_DIR}/external/glad/src/glad.c"
