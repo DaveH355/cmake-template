@@ -77,12 +77,20 @@ cmake -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" .. || { echo "cmake configuration faile
 if [ -f "compile_commands.json" ]; then
   cp compile_commands.json ../
 else
-  echo "No compile_commands.json found in the current build directory"
+  echo "No compile_commands.json found in the current build directory."
 fi
 
 if [ "$RELOAD_ONLY" = false ]; then
   cmake --build . || { echo "Build failed"; popd; exit 1; }
+
+  # nvidia with valgrind (possible driver mem leaks, not as accurate)
+  # export __GLX_VENDOR_LIBRARY_NAME=nvidia && export __NV_PRIME_RENDER_OFFLOAD=1 && valgrind --leak-check=full ./opengl_playground
+
+  # igpu with valgrind
+  # valgrind --leak-check=full ./opengl_playground
+
   ./opengl_playground
+
 fi
 
 popd
