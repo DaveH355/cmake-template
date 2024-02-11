@@ -14,7 +14,7 @@ find_package(glfw3 REQUIRED)
 file(GLOB_RECURSE PROJECT_SOURCES
     CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
     # glad
-    "${CMAKE_CURRENT_SOURCE_DIR}/external/glad/src/glad.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/external/glad/src/gl.c"
 )
 
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})

@@ -1,4 +1,5 @@
-#include <glad/glad.h>
+#include <cstdio>
+#include <glad/gl.h>
 #include <GLFW/glfw3.h>
 
 #include <iostream>
@@ -30,8 +31,8 @@ int main()
   // glfw: initialize and configure
   // ------------------------------
   glfwInit();
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 #ifdef __APPLE__
@@ -52,12 +53,15 @@ int main()
   glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
   // glad: load all OpenGL function pointers
-  // ---------------------------------------
-  if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+  int version = gladLoadGL(glfwGetProcAddress);
+  if (version == 0)
   {
-    std::cout << "Failed to initialize GLAD" << std::endl;
+    printf("Failed to initialize OpenGL context\n");
     return -1;
   }
+  // Successfully loaded OpenGL
+  printf("glad: Loaded OpenGL %d.%d\n", GLAD_VERSION_MAJOR(version),
+         GLAD_VERSION_MINOR(version));
 
   // build and compile our shader program
   // ------------------------------------
