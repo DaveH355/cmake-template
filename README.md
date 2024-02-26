@@ -9,10 +9,12 @@ GLFW is required to run the OpenGL example that comes with this template.
 
 #### Fedora
 
+    sudo dnf upgrade
     sudo dnf install gcc make cmake clang clang-tools-extra glfw glfw-devel
 
 #### Ubuntu
 
+    sudo apt update && sudo apt upgrade
     sudo apt install build-essential cmake clang clang-tools-extra libglfw3 libglfw3-dev
 
 ## Building
