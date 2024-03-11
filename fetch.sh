@@ -6,14 +6,17 @@ GITHUB_FILES=(
     # Add more URLs here
 )
 
-mkdir -p ./external/singles
+if ! mkdir -p ./external/singles; then
+    echo "Error creating directory ./external/singles" >&2
+    exit 1
+fi
 
 for GITHUB_URL in "${GITHUB_FILES[@]}"; do
 
-    RAW_URL=$(echo "${GITHUB_URL}" | sed "s/github\.com/raw.githubusercontent.com/g" | sed "s/blob\///g")
+    RAW_URL=$(echo "${GITHUB_URL}" | sed "s/github\.com/raw.githubusercontent.com/; s/blob\///")
 
     # Extract the file name from URL
-    FILE_NAME=$(basename "${RAW_URL}")
+    FILE_NAME="${RAW_URL##*/}"
 
     FILE_PATH="./external/singles/${FILE_NAME}"
 
@@ -21,7 +24,7 @@ for GITHUB_URL in "${GITHUB_FILES[@]}"; do
     [ -f "${FILE_PATH}" ] && BEFORE_CHECKSUM=$(md5sum "${FILE_PATH}" | cut -d ' ' -f 1)
 
     # Download the file
-    if ! curl -sS -L "${RAW_URL}" -o "${FILE_PATH}"; then
+    if ! curl -sS -L "${RAW_URL}" -o "${FILE_PATH}" > /dev/null; then
         echo "Error downloading ${FILE_NAME}" >&2
         continue
     fi
