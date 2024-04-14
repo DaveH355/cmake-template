@@ -12,9 +12,10 @@ find_package(glfw3 REQUIRED)
 # Add source files. Can also add source files from extra libraries
 # Reason for using glob: the easiet option for most projects
 file(GLOB_RECURSE PROJECT_SOURCES
-    CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
+    CONFIGURE_DEPENDS 
+    src/*.cpp
     # glad
-    "${CMAKE_CURRENT_SOURCE_DIR}/external/glad/src/gl.c"
+    external/glad/src/gl.c
 )
 
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
@@ -24,11 +25,11 @@ set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "opengl_playground"
 
 # Include directories. Can also add headers from extra libraries
 target_include_directories(${PROJECT_NAME} PRIVATE
-    "${CMAKE_CURRENT_SOURCE_DIR}/src"
+    src
     #glad
-    "${CMAKE_CURRENT_SOURCE_DIR}/external/glad/include"
+    external/glad/include
     # all single file header libs
-    "${CMAKE_CURRENT_SOURCE_DIR}/external/singles"
+    external/singles
 )
 
 # Link libraries

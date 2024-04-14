@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
+#include <string>
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
@@ -156,6 +157,11 @@ int main()
   // uncomment this call to draw in wireframe polygons.
   // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
+  // variables for FPS calculation
+  double previousTime = glfwGetTime();
+  int frameCount = 0;
+  // glfwSwapInterval(0);
+
   // render loop
   // -----------
   while (!glfwWindowShouldClose(window))
@@ -183,6 +189,21 @@ int main()
     // -------------------------------------------------------------------------------
     glfwSwapBuffers(window);
     glfwPollEvents();
+
+    // calculate and display FPS every 2 seconds
+    double currentTime = glfwGetTime();
+    frameCount++;
+    if (currentTime - previousTime >= 2.0)
+    {
+      // calculate the FPS for the previous 2 seconds
+      int fps = static_cast<int>(frameCount / (currentTime - previousTime));
+      std::string windowTitle = "HelloOpenGL - FPS: " + std::to_string(fps);
+      glfwSetWindowTitle(window, windowTitle.c_str());
+
+      // reset frame count and previous time
+      frameCount = 0;
+      previousTime = currentTime;
+    }
   }
 
   // optional: de-allocate all resources once they've outlived their purpose:
