@@ -35,7 +35,7 @@ You can easily change build types or compilers. The script will manage multiple 
 
 ### Library Management
 
-/external is for libraries that aren't avaliable through the package manager. You can manually add your own and link them in CMake. Or use `fetch.sh`, which can manage header only libraries. Simply edit the file to add more libraries. Then run the script. The headers are stored in /external/singles which is automatically included by CMake into the project.
+./external is for libraries that aren't avaliable through the package manager. You can manually add your own and link them in CMake. Or use `fetch.sh`, which can manage header only libraries. Simply edit the file to add more libraries. Then run the script. The headers are stored in ./external/singles which is automatically included into the project.
 
 For larger libraries like imgui, it's better to download manually. Using CMake's FetchContent is clunky as it downloads the same library for every build dir.
 
