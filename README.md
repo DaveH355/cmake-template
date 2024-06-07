@@ -21,13 +21,12 @@ GLFW is required to run the OpenGL example that comes with this template.
 
 Simply run `build.sh` to compile and run the program. CMake is run everytime so any changes you've made to CMakeLists.txt will be applied.
 
-You can easily change build types or compilers. The script will manage multiple build directories for each different configuration.
-**Note** You only need pass any argument once. The settings are written to a .build-config file and will be remembered next time.
+You can easily change build types or compilers. The script will manage different build directories for different configurations.
 
-| Arg | Options                                    |
-| :-: | ------------------------------------------ |
-| -b  | Debug, Release, RelWithDebInfo, MinSizeRel |
-| -c  | gcc, clang                                 |
+|      Arg       | Options                                    |
+| :------------: | ------------------------------------------ |
+|  -b, --build   | Debug, Release, RelWithDebInfo, MinSizeRel |
+| -c, --compiler | gcc, clang                                 |
 
 #### Example usage
 
