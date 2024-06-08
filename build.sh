@@ -66,12 +66,12 @@ if [[ ! -d $BUILD_DIR ]]; then
 		cd "$BUILD_DIR" || exit
 
 		cmake -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" ..
-		cp compile_commands.json ../
 	)
 fi
 
 cd "$BUILD_DIR" || exit
 
+cp compile_commands.json ../
 cmake --build .
 
 # nvidia with valgrind (possible driver mem leaks, not as accurate)
