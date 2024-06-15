@@ -72,7 +72,7 @@ fi
 cd "$BUILD_DIR" || exit
 
 cp compile_commands.json ../
-cmake --build .
+cmake --build . || exit
 
 # nvidia with valgrind (possible driver mem leaks, not as accurate)
 # export __GLX_VENDOR_LIBRARY_NAME=nvidia && export __NV_PRIME_RENDER_OFFLOAD=1 && valgrind --leak-check=full ./opengl_playground
